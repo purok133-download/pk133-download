@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>PK133 · official download</title>
+  <style>
+    /* ---------- reset & base ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFFFFF;
+      color: #1F1F1F;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ---------- typography ---------- */
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 36px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    p {
+      color: #666666;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .text-muted {
+      color: #666666;
+      font-size: 16px;
+    }
+
+    .text-small {
+      font-size: 14px;
+      color: #666666;
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      display: inline-block;
+      background: #F57C00;
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 18px;
+      padding: 14px 40px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+      outline: none;
+    }
+
+    .btn:hover {
+      background: #EF6C00;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1F1F1F;
+      border: 1.5px solid #E8E8E8;
+      padding: 12px 38px;
+    }
+
+    .btn-outline:hover {
+      background: #FAFAFA;
+      border-color: #BDBDBD;
+      color: #1F1F1F;
+    }
+
+    .btn-sm {
+      font-size: 16px;
+      padding: 10px 28px;
+    }
+
+    .btn-block {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-link-btn {
+      background: transparent;
+      border: none;
+      color: #1F1F1F;
+      font-size: 17px;
+      font-weight: 450;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+      transition: color 0.1s;
+      text-decoration: none;
+    }
+
+    .nav-link-btn:hover {
+      color: #F57C00;
+    }
+
+    /* ---------- navbar ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 20px;
+      border-bottom: 1px solid #E8E8E8;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 500;
+      color: #1F1F1F;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: #F57C00;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1F1F1F;
+      font-size: 17px;
+      font-weight: 450;
+      transition: color 0.1s;
+    }
+
+    .nav-links a:hover {
+      color: #F57C00;
+    }
+
+    .nav-links .btn {
+      font-size: 16px;
+      padding: 10px 28px;
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      text-align: center;
+      padding: 60px 0 20px;
+    }
+
+    .hero h1 {
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      margin: 0 auto 32px;
+      font-size: 20px;
+      max-width: 700px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #666666;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- screenshots ---------- */
+    .screenshot-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .screenshot-showcase img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      background: #FFFFFF;
+      border: 1px solid #F0F0F0;
+      transition: none;
+    }
+
+    .screenshot-connect {
+      width: 380px;
+      flex-shrink: 0;
+    }
+
+    .screenshot-hrs {
+      width: 280px;
+      flex-shrink: 0;
+      margin-top: 20px;
+    }
+
+    /* ---------- applications section ---------- */
+    .apps-section {
+      padding: 70px 0 40px;
+      border-top: 1px solid #E8E8E8;
+      margin-top: 20px;
+    }
+
+    .apps-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px 80px;
+      justify-content: space-between;
+    }
+
+    .app-col {
+      flex: 1 1 280px;
+      min-width: 240px;
+    }
+
+    .app-col h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .app-col .desc {
+      font-size: 17px;
+      color: #666666;
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+
+    .app-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin: 20px 0 24px;
+      font-size: 16px;
+      color: #1F1F1F;
+      border-top: 1px solid #E8E8E8;
+      padding-top: 20px;
+    }
+
+    .app-meta span {
+      display: inline-block;
+    }
+
+    .app-meta strong {
+      font-weight: 500;
+      color: #1F1F1F;
+      margin-right: 4px;
+    }
+
+    .app-meta .badge {
+      background: #FAFAFA;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px solid #E8E8E8;
+    }
+
+    .app-col .btn {
+      margin-top: 4px;
+    }
+
+    /* ---------- installation steps ---------- */
+    .steps-section {
+      padding: 60px 0 50px;
+      border-top: 1px solid #E8E8E8;
+    }
+
+    .steps-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      gap: 8px 0;
+    }
+
+    .step-item {
+      flex: 1 0 100px;
+      text-align: center;
+      padding: 6px 8px;
+      border-right: 1px solid #E8E8E8;
+    }
+
+    .step-item:last-child {
+      border-right: none;
+    }
+
+    .step-num {
+      display: inline-block;
+      background: #FAFAFA;
+      border-radius: 40px;
+      padding: 4px 16px;
+      font-weight: 500;
+      color: #F57C00;
+      font-size: 18px;
+      margin-bottom: 6px;
+      border: 1px solid #E8E8E8;
+    }
+
+    .step-item p {
+      font-size: 16px;
+      color: #1F1F1F;
+      margin: 4px 0;
+    }
+
+    .step-arrow {
+      color: #BDBDBD;
+      font-size: 22px;
+      padding: 0 4px;
+    }
+
+    /* ---------- system requirements ---------- */
+    .sys-section {
+      padding: 50px 0 50px;
+      border-top: 1px solid #E8E8E8;
+    }
+
+    .sys-table {
+      width: 100%;
+      max-width: 580px;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    .sys-table td {
+      padding: 14px 8px 14px 0;
+      border-bottom: 1px solid #E8E8E8;
+      font-size: 17px;
+    }
+
+    .sys-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .sys-table .label {
+      color: #666666;
+      width: 150px;
+      font-weight: 450;
+    }
+
+    .sys-table .value {
+      color: #1F1F1F;
+      font-weight: 450;
+    }
+
+    /* ---------- important notice ---------- */
+    .notice {
+      background: #FFF4E8;
+      padding: 48px 0;
+      border-top: 1px solid #F5E2D0;
+      border-bottom: 1px solid #F5E2D0;
+      margin: 10px 0 0;
+    }
+
+    .notice h2 {
+      color: #1F1F1F;
+      font-weight: 500;
+    }
+
+    .notice p {
+      max-width: 700px;
+      font-size: 18px;
+      color: #3E3E3E;
+      margin-top: 6px;
+    }
+
+    /* ---------- footer ---------- */
+    .footer {
+      padding: 44px 0 36px;
+      border-top: 1px solid #E8E8E8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-brand {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .footer-brand span {
+      color: #F57C00;
+    }
+
+    .footer-copy {
+      color: #666666;
+      font-size: 15px;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 24px;
+      }
+      h1 {
+        font-size: 42px;
+      }
+      .screenshot-connect {
+        width: 300px;
+      }
+      .screenshot-hrs {
+        width: 220px;
+      }
+      .steps-row {
+        gap: 12px;
+      }
+      .step-item {
+        border-right: none;
+        flex: 1 1 120px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 0;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        width: 100%;
+      }
+      .nav-links .btn {
+        padding: 8px 22px;
+        font-size: 15px;
+      }
+      h1 {
+        font-size: 34px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+      }
+      .screenshot-showcase {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .screenshot-connect,
+      .screenshot-hrs {
+        width: 90%;
+        max-width: 340px;
+        margin-top: 0;
+      }
+      .apps-grid {
+        flex-direction: column;
+        gap: 48px;
+      }
+      .app-col {
+        flex: 1 1 auto;
+      }
+      .steps-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+      }
+      .step-item {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        border-bottom: 1px solid #E8E8E8;
+        padding: 10px 0;
+        text-align: left;
+      }
+      .step-item:last-child {
+        border-bottom: none;
+      }
+      .step-arrow {
+        display: none;
+      }
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 18px;
+      }
+      .nav-links {
+        gap: 12px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- navigation -->
+  <header class="container">
+    <nav class="navbar">
+      <div class="logo">PK<span>133</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Applications</a></li>
+        <li><a href="how-to-use.html">How to use</a></li>
+        <li><a href="#" class="btn btn-sm">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- hero -->
+    <section class="container hero">
+      <h1>Download PK133<br>Applications</h1>
+      <p>Access the official PK133 mobile applications for communication and emergency response. Download the latest version securely and quickly.</p>
+      <div class="hero-buttons">
+        <button class="btn" onclick="downloadConnect()">Download PK133 Connect</button>
+        <button class="btn btn-outline" onclick="downloadHRS()">Download PK133 HRS</button>
+      </div>
+      <div class="hero-sub">Official Android APK Downloads</div>
+    </section>
+
+    <!-- screenshot showcase -->
+    <div class="container screenshot-showcase">
+      <img class="screenshot-connect" src="https://res.cloudinary.com/djbmocday/image/upload/v1783266086/Untitled_design_qteldf.png" alt="PK133 Connect screenshot">
+      <img class="screenshot-hrs" src="https://res.cloudinary.com/djbmocday/image/upload/v1783266080/Untitled_design_1_lgnrcr.png" alt="PK133 HRS screenshot">
+    </div>
+
+    <!-- applications two columns -->
+    <section class="container apps-section">
+      <div class="apps-grid">
+        <!-- left: connect -->
+        <div class="app-col">
+          <h3>PK133 Connect</h3>
+          <p class="desc">PK133 Connect is the official communication platform designed for residents, responders, and local government personnel. It provides real-time announcements, community updates, messaging, and integrated public safety features.</p>
+          <div class="app-meta">
+            <span><strong>Version</strong> 3.2.1</span>
+            <span><strong>Platform</strong> Android</span>
+            <span><strong>Compatibility</strong> 8.0+</span>
+            <span><span class="badge">● Stable</span></span>
+          </div>
+          <button class="btn" onclick="downloadConnect()">Download PK133 Connect</button>
+        </div>
+        <!-- right: hrs -->
+        <div class="app-col">
+          <h3>PK133 HRS</h3>
+          <p class="desc">PK133 HRS is the official emergency response application that enables users to report incidents, send SOS alerts, and communicate with emergency responders efficiently.</p>
+          <div class="app-meta">
+            <span><strong>Version</strong> 2.5.0</span>
+            <span><strong>Platform</strong> Android</span>
+            <span><strong>Compatibility</strong> 8.0+</span>
+            <span><span class="badge">● Stable</span></span>
+          </div>
+          <button class="btn" onclick="downloadHRS()">Download PK133 HRS</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- installation guide -->
+    <section class="container steps-section">
+      <h2>Installation Guide</h2>
+      <div class="steps-row">
+        <div class="step-item"><span class="step-num">1</span><p>Download the APK.</p></div>
+        <div class="step-arrow">↓</div>
+        <div class="step-item"><span class="step-num">2</span><p>Open the downloaded file.</p></div>
+        <div class="step-arrow">↓</div>
+        <div class="step-item"><span class="step-num">3</span><p>Allow installation if prompted.</p></div>
+        <div class="step-arrow">↓</div>
+        <div class="step-item"><span class="step-num">4</span><p>Install.</p></div>
+        <div class="step-arrow">↓</div>
+        <div class="step-item"><span class="step-num">5</span><p>Launch the application.</p></div>
+      </div>
+    </section>
+
+    <!-- system requirements -->
+    <section class="container sys-section">
+      <h2>System Requirements</h2>
+      <table class="sys-table">
+        <tr><td class="label">Android Version</td><td class="value">Android 8.0+</td></tr>
+        <tr><td class="label">Architecture</td><td class="value">Universal</td></tr>
+        <tr><td class="label">Internet</td><td class="value">Required</td></tr>
+        <tr><td class="label">Storage</td><td class="value">100 MB+</td></tr>
+        <tr><td class="label">License</td><td class="value">Free</td></tr>
+      </table>
+    </section>
+
+    <!-- important notice -->
+    <section class="notice">
+      <div class="container">
+        <h2>Important Notice</h2>
+        <p>Always download PK133 applications from the official website to ensure authenticity and security. Avoid installing APK files from unknown or untrusted sources.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="container footer">
+    <div class="footer-brand">PK<span>133</span> <span style="font-weight:400;color:#666;font-size:16px;margin-left:8px;">Official Application Download Portal</span></div>
+    <div class="footer-copy">© 2026 PK133. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function downloadConnect() {
+      window.location.href = "pk133-connect.apk";
+    }
+    function downloadHRS() {
+      window.location.href = "pk133-hrs.apk";
+    }
+  </script>
+</body>
+</html>
