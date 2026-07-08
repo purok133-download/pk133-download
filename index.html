@@ -11,6 +11,11 @@
       box-sizing: border-box;
     }
 
+    /* Smooth scrolling for the entire page */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #FFFFFF;
       color: #1F1F1F;
@@ -25,15 +30,44 @@
       padding: 0 32px;
     }
 
+    /* full-width header */
+    .header-full {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E8E8E8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 32px;
+      max-width: 1240px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
     h1, h2, h3 {
       font-weight: 500;
       letter-spacing: -0.02em;
     }
 
-    h1 {
-      font-size: 52px;
+    /* HERO HEADING - bigger and custom font */
+    .hero h1 {
+      font-size: 72px;
       line-height: 1.1;
-      font-weight: 600;
+      font-weight: 700;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      letter-spacing: -0.03em;
+      background: linear-gradient(145deg, #1F1F1F 0%, #3D3D3D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
     }
 
     h2 {
@@ -83,8 +117,15 @@
 
     .btn:hover {
       background: #EF6C00;
-      box-shadow: none;
-      transform: none;
+    }
+
+    /* Lighter green button style - no animation */
+    .btn-green {
+      background: #43A047;
+    }
+
+    .btn-green:hover {
+      background: #388E3C;
     }
 
     .btn-outline {
@@ -105,6 +146,7 @@
       padding: 10px 28px;
     }
 
+    /* Full-width buttons */
     .btn-block {
       display: block;
       width: 100%;
@@ -126,15 +168,6 @@
 
     .nav-link-btn:hover {
       color: #F57C00;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 0 20px;
-      border-bottom: 1px solid #E8E8E8;
-      flex-wrap: wrap;
     }
 
     .logo {
@@ -160,26 +193,33 @@
       text-decoration: none;
       color: #1F1F1F;
       font-size: 17px;
-      font-weight: 450;
+      font-weight: 700;  /* Bold */
       transition: color 0.1s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #F57C00;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     .nav-links a:hover {
       color: #F57C00;
     }
 
-    .nav-links .btn {
-      font-size: 16px;
-      padding: 10px 28px;
-    }
-
     .hero {
       text-align: center;
       padding: 60px 0 20px;
-    }
-
-    .hero h1 {
-      margin-bottom: 16px;
     }
 
     .hero p {
@@ -190,10 +230,18 @@
 
     .hero-buttons {
       display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons .btn {
+      width: 100%;
+      text-align: center;
     }
 
     .hero-sub {
@@ -206,7 +254,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
       padding: 40px 0 20px;
       flex-wrap: wrap;
     }
@@ -215,22 +263,21 @@
       max-width: 100%;
       height: auto;
       display: block;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       background: #FFFFFF;
       border: 1px solid #F0F0F0;
-      transition: none;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border-radius: 0;
     }
 
-    .screenshot-connect {
+    .screenshot-showcase img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .screenshot-connect,
+    .screenshot-hrs {
       width: 380px;
       flex-shrink: 0;
-    }
-
-    .screenshot-hrs {
-      width: 280px;
-      flex-shrink: 0;
-      margin-top: 20px;
     }
 
     .apps-section {
@@ -249,6 +296,15 @@
     .app-col {
       flex: 1 1 280px;
       min-width: 240px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 24px;
+      border-radius: 12px;
+      background: #FFFFFF;
+    }
+
+    .app-col:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
     }
 
     .app-col h3 {
@@ -294,6 +350,8 @@
 
     .app-col .btn {
       margin-top: 4px;
+      width: 100%;
+      text-align: center;
     }
 
     .steps-section {
@@ -315,6 +373,11 @@
       text-align: center;
       padding: 6px 8px;
       border-right: 1px solid #E8E8E8;
+      transition: transform 0.3s ease;
+    }
+
+    .step-item:hover {
+      transform: translateY(-4px);
     }
 
     .step-item:last-child {
@@ -331,6 +394,13 @@
       font-size: 18px;
       margin-bottom: 6px;
       border: 1px solid #E8E8E8;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .step-item:hover .step-num {
+      background: #F57C00;
+      color: #FFFFFF;
+      border-color: #F57C00;
     }
 
     .step-item p {
@@ -343,6 +413,12 @@
       color: #BDBDBD;
       font-size: 22px;
       padding: 0 4px;
+      animation: pulseArrow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseArrow {
+      0%, 100% { opacity: 0.4; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(4px); }
     }
 
     .sys-section {
@@ -361,6 +437,11 @@
       padding: 14px 8px 14px 0;
       border-bottom: 1px solid #E8E8E8;
       font-size: 17px;
+      transition: background 0.2s ease;
+    }
+
+    .sys-table tr:hover td {
+      background: #FAFAFA;
     }
 
     .sys-table tr:last-child td {
@@ -384,6 +465,11 @@
       border-top: 1px solid #F5E2D0;
       border-bottom: 1px solid #F5E2D0;
       margin: 10px 0 0;
+      transition: background 0.3s ease;
+    }
+
+    .notice:hover {
+      background: #FFEDDD;
     }
 
     .notice h2 {
@@ -409,6 +495,9 @@
     }
 
     .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 20px;
       font-weight: 500;
     }
@@ -417,23 +506,65 @@
       color: #F57C00;
     }
 
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1F1F1F;
+      font-size: 15px;
+      font-weight: 450;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-social:hover {
+      color: #1877F2;
+      transform: translateY(-2px);
+    }
+
+    .footer-social img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #E8E8E8;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .footer-social:hover img {
+      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.25);
+    }
+
     .footer-copy {
       color: #666666;
       font-size: 15px;
+    }
+
+    /* Scroll-triggered fade-in animation for sections */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 900px) {
       .container {
         padding: 0 24px;
       }
-      h1 {
-        font-size: 42px;
+      .navbar {
+        padding: 24px 24px;
       }
-      .screenshot-connect {
-        width: 300px;
+      .hero h1 {
+        font-size: 52px;
       }
+      .screenshot-connect,
       .screenshot-hrs {
-        width: 220px;
+        width: 300px;
       }
       .steps-row {
         gap: 12px;
@@ -449,19 +580,15 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
-        padding: 20px 0;
+        padding: 20px 24px;
       }
       .nav-links {
         flex-wrap: wrap;
         gap: 16px 24px;
         width: 100%;
       }
-      .nav-links .btn {
-        padding: 8px 22px;
-        font-size: 15px;
-      }
-      h1 {
-        font-size: 34px;
+      .hero h1 {
+        font-size: 42px;
       }
       .hero p {
         font-size: 18px;
@@ -493,6 +620,10 @@
       }
       .app-col {
         flex: 1 1 auto;
+        padding: 16px;
+      }
+      .app-col .btn {
+        width: 100%;
       }
       .steps-row {
         flex-direction: column;
@@ -506,6 +637,7 @@
         border-bottom: 1px solid #E8E8E8;
         padding: 10px 0;
         text-align: left;
+        border-right: none;
       }
       .step-item:last-child {
         border-bottom: none;
@@ -516,7 +648,10 @@
       .footer {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
+      }
+      .footer-brand {
+        flex-wrap: wrap;
       }
     }
 
@@ -524,46 +659,53 @@
       .container {
         padding: 0 18px;
       }
+      .navbar {
+        padding: 18px 18px;
+      }
       .nav-links {
         gap: 12px 18px;
+      }
+      .hero h1 {
+        font-size: 34px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="container">
-    <nav class="navbar">
+  <!-- Full-width header -->
+  <header class="header-full">
+    <div class="navbar">
       <div class="logo">PK<span>133</span></div>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Applications</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#apps">Applications</a></li>
         <li><a href="how-to-use.html">How to use</a></li>
-        <li><a href="#" class="btn btn-sm">Download</a></li>
+        <!-- Download button removed from header -->
       </ul>
-    </nav>
+    </div>
   </header>
 
   <main>
-    <section class="container hero">
+    <section id="hero" class="container hero fade-section visible">
       <h1>Download PK133<br>Applications</h1>
       <p>Access the official PK133 mobile applications for communication and emergency response. Download the latest version securely and quickly.</p>
-      <div class="hero-buttons">
+      <div id="download" class="hero-buttons">
         <button class="btn" onclick="downloadConnect()">Download PK133 Connect</button>
-        <button class="btn btn-outline" onclick="downloadHRS()">Download PK133 HRS</button>
+        <button class="btn btn-green" onclick="downloadHRS()">Download PK133 HRS</button>
       </div>
       <div class="hero-sub">Official Android APK Downloads</div>
     </section>
 
-    <div class="container screenshot-showcase">
+    <div class="container screenshot-showcase fade-section">
       <img class="screenshot-connect" src="https://res.cloudinary.com/djbmocday/image/upload/v1783266086/Untitled_design_qteldf.png" alt="PK133 Connect screenshot">
       <img class="screenshot-hrs" src="https://res.cloudinary.com/djbmocday/image/upload/v1783266080/Untitled_design_1_lgnrcr.png" alt="PK133 HRS screenshot">
     </div>
 
-    <section class="container apps-section">
+    <section id="apps" class="container apps-section fade-section">
       <div class="apps-grid">
         <div class="app-col">
           <h3>PK133 Connect</h3>
-          <p class="desc">PK133 Connect is the official communication platform designed for residents, responders, and local government personnel. It provides real-time announcements, community updates, messaging, and integrated public safety features.</p>
+          <p class="desc">PK133 Connect is the official communication platform designed for residents, responders, and local government personnel. It provides real-time announcements, community updates, messaging, geo-tracking, and integrated public safety features.</p>
           <div class="app-meta">
             <span><strong>Version</strong> 3.2.1</span>
             <span><strong>Platform</strong> Android</span>
@@ -581,12 +723,12 @@
             <span><strong>Compatibility</strong> 8.0+</span>
             <span><span class="badge">● Stable</span></span>
           </div>
-          <button class="btn" onclick="downloadHRS()">Download PK133 HRS</button>
+          <button class="btn btn-green" onclick="downloadHRS()">Download PK133 HRS</button>
         </div>
       </div>
     </section>
 
-    <section class="container steps-section">
+    <section id="steps" class="container steps-section fade-section">
       <h2>Installation Guide</h2>
       <div class="steps-row">
         <div class="step-item"><span class="step-num">1</span><p>Download the APK.</p></div>
@@ -601,7 +743,7 @@
       </div>
     </section>
 
-    <section class="container sys-section">
+    <section class="container sys-section fade-section">
       <h2>System Requirements</h2>
       <table class="sys-table">
         <tr><td class="label">Android Version</td><td class="value">Android 8.0+</td></tr>
@@ -612,7 +754,7 @@
       </table>
     </section>
 
-    <section class="notice">
+    <section class="notice fade-section">
       <div class="container">
         <h2>Important Notice</h2>
         <p>Always download PK133 applications from the official website to ensure authenticity and security. Avoid installing APK files from unknown or untrusted sources.</p>
@@ -621,17 +763,53 @@
   </main>
 
   <footer class="container footer">
-    <div class="footer-brand">PK<span>133</span> <span style="font-weight:400;color:#666;font-size:16px;margin-left:8px;">Official Application Download Portal</span></div>
-    <div class="footer-copy">© 2026 PK133. All rights reserved.</div>
+    <div class="footer-brand">
+      <span>PK<span>133</span></span>
+      <span style="font-weight:400;color:#666;font-size:16px;">Official Application Download Portal</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+      <a href="https://www.facebook.com/MTOAlitagtag" target="_blank" rel="noopener noreferrer" class="footer-social">
+        <img src="https://scontent.fcgy1-2.fna.fbcdn.net/v/t39.30808-6/271134328_107780231786907_3918144284407431460_n.jpg?stp=dst-jpg_tt6&cstp=mx200x200&ctp=s200x200&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGEFJ82USXzuTsqpoTkvBgFQIQRERqde-JAhBERGp174pxjv1YmQQuKgb59IfqhfyPT-ZOkTMrshKNRxmacIN9R&_nc_ohc=YwkqdFTuBM4Q7kNvwF5saqP&_nc_oc=Adr2dfb3bUQjNSRzi0Cloh7sa7953BCZSkIC4xqsjxvz_vrjqmdJs1-baF2-g-o7FMlOARZJyhC3Eulv_--HeaFI&_nc_zt=23&_nc_ht=scontent.fcgy1-2.fna&_nc_gid=lmPdcS5hSGWW4R8Www4tfQ&_nc_ss=7b2a8&oh=00_AQCOPJEuaskURB67GI7xw_haJGxYWpW0CYa0r-stk3C3OA&oe=6A53A135" alt="Municipality of Alitagtag Facebook">
+        <span>Municipality of Alitagtag</span>
+      </a>
+      <div class="footer-copy">© 2026 PK133. All rights reserved.</div>
+    </div>
   </footer>
 
   <script>
+    // Download functions
     function downloadConnect() {
       window.location.href = "pk133-connect.apk";
     }
     function downloadHRS() {
       window.location.href = "pk133-hrs.apk";
     }
+
+    // Scroll-triggered fade-in animation for sections
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-section');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      fadeElements.forEach(el => observer.observe(el));
+
+      // Also check if any are already visible on load
+      fadeElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add('visible');
+        }
+      });
+    });
   </script>
 </body>
 </html>
